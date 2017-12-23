@@ -72,8 +72,6 @@ public class xMAndroidClient {
 
 
     /******************************************************下面是对外的方法******************************************************************************/
-
-
     /**
      * @return 是否成功连接服务器
      */
@@ -104,7 +102,7 @@ public class xMAndroidClient {
                 @Override
                 public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
                     isConnected = false;
-                    xMLogUtils.e("startConnect onFailureMQTT:" + exception);
+                    xMLogUtils.e(" startConnect onFailureMQTT:" + exception);
                     if (null != clientListener) {
                         clientListener.onFailureMQTT(xMQTTCode.CONNECT_FAIL, exception.getMessage());
                     }
