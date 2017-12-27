@@ -1,8 +1,11 @@
 package com.xuhong.xmqtt_master;
 
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.xuhong.xmqttlib.api.xMAndroidClient;
@@ -11,11 +14,15 @@ import com.xuhong.xmqttlib.state.xMQTTCode;
 
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 
-public class MainActivity extends AppCompatActivity implements xMQTTClientListener {
+import java.util.logging.Logger;
+
+public class MainActivity extends AppCompatActivity implements xMQTTClientListener, View.OnClickListener {
 
     private xMAndroidClient client;
 
     private static final String TAG = "xMQTTSample";
+
+    private FloatingActionButton btnAdd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +30,16 @@ public class MainActivity extends AppCompatActivity implements xMQTTClientListen
         setContentView(R.layout.activity_main);
 
         init();
+        initWidget();
+
     }
 
+    private void initWidget() {
+        btnAdd = findViewById(R.id.btnAdd);
+        btnAdd.setOnClickListener(this);
+    }
+
+    //初始化
     private void init() {
 
         client = new xMAndroidClient.Builder(this)
@@ -36,6 +51,22 @@ public class MainActivity extends AppCompatActivity implements xMQTTClientListen
         client.startConnect();
         client.setClientListener(this);
 
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_show, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if (item.getItemId() == R.menu.menu_show) {
+
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     public void btnSub1(View view) {
@@ -67,13 +98,8 @@ public class MainActivity extends AppCompatActivity implements xMQTTClientListen
     }
 
 
+    @Override
+    public void onClick(View view) {
 
-
-
-
-
-
-
-
-
+    }
 }

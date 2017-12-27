@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/mRecycleView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
     <Button
         android:layout_width="wrap_content"
@@ -21,11 +26,25 @@
         android:textAllCaps="false" />
 
     <Button
-        android:onClick="btnPushMess1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="btnPushMess1"
         android:text="发送一则消息，主题是:/8266in , 消息是：你好8266！"
         android:textAllCaps="false" />
 
 
-</LinearLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/btnAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_marginBottom="25dp"
+        android:layout_marginEnd="25dp"
+        android:src="@drawable/ic_icon_add"
+        app:backgroundTint="#45c4ea"
+        app:borderWidth="0dp"
+        app:elevation="10dp"
+        app:pressedTranslationZ="16dp"
+        app:rippleColor="#33728dff" />
+
+</FrameLayout>
